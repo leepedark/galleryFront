@@ -1,16 +1,41 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <Header/>
+  <RouterView/>
+  <Footer/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import Home from "@/pages/Home.vue";
+import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
+import axios from "axios";
+import store from "@/scripts/store";
+import {useRoute} from "vue-router";
+import {watch} from "vue";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Footer,
+    Header,
+    // Home
+  },
+
+  setup() {
+    const check = () => {
+      axios.get("/api/account/check").then((res) => {
+        if (res.data) {
+          store.commit("setAccount", res.data || 0);
+        }
+      }).catch(() => {
+        console.log("로그인필요")
+      })
+    }
+    const route = useRoute();
+
+    watch(route, () => check());
   }
+
 }
 </script>
 
