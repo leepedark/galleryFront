@@ -1,4 +1,5 @@
 <template>
+
   <div class="container">
     <div class="input-form-backgroud row">
       <div class="input-form col-md-12 mx-auto">
@@ -35,35 +36,15 @@
             </div>
           </div>
 
-          <!--          <div class="mb-3">-->
-          <!--            <label for="email">이메일</label>-->
-          <!--            <input type="email" class="form-control" id="email" placeholder="you@example.com" required v-model="state.form.email">-->
-          <!--            <div class="invalid-feedback">-->
-          <!--              이메일을 입력해주세요.-->
-          <!--            </div>-->
-          <!--          </div>-->
-
-                    <div class="mb-3">
-                      <label for="address">주소</label>
-                      <input type="text" class="form-control" id="address" placeholder="서울특별시 강남구" required v-model="state.form.address">
-                      <div class="invalid-feedback">
-                        주소를 입력해주세요.
-                      </div>
-                    </div>
-
-                    <div class="mb-3">
-                      <label for="address2">상세주소<span class="text-muted">&nbsp;(필수 아님)</span></label>
-                      <input type="text" class="form-control" id="address2" placeholder="상세주소를 입력해주세요."
-                             v-model="state.form.addressDtl">
-                    </div>
-
           <hr class="mb-4">
           <!--          <div class="custom-control custom-checkbox">-->
           <!--            <input type="checkbox" class="custom-control-input" id="aggrement" required>-->
           <!--            <label class="custom-control-label" for="aggrement">개인정보 수집 및 이용에 동의합니다.</label>-->
           <!--          </div>-->
           <div class="mb-4"></div>
-          <router-link to="address" class="btn btn-primary">주소검색</router-link>
+        <Address/>
+
+<!--          <router-link to="address" class="btn btn-primary">주소검색</router-link>-->
           <button class="btn btn-primary btn-lg btn-block" type="submit" @click="submit()">가입 완료</button>
 <!--        </form>-->
       </div>
@@ -76,9 +57,11 @@
 import {reactive} from "vue";
 import axios from "axios";
 import router from "@/scripts/router";
+import Address from "@/components/Address.vue";
 
 export default {
   name: "Join",
+  components: {Address},
 
   setup() {
     const state = reactive({

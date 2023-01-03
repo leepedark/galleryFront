@@ -1,16 +1,27 @@
 <template>
   <div class="daummap">
-    <h1>우편번호: <span>{{ zip }}</span></h1>
-    <h1>기본주소: <span>{{ addr1 }}</span></h1>
-    <h1>상세주소: <span>{{ addr2 }}</span></h1>
+    <button @click="showApi">주소검색</button>
+    <div class="col-md-6 mb-3">
+      <label for="postNo">우편번호</label>
+      <input type="text" class="form-control" id="postNo" required v-model="zip">
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="basic">기본주소</label>
+      <input type="text" class="form-control" id="basic" required v-model="addr1">
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="dt;">상세주소</label>
+      <input type="text" class="form-control" id="dtl" required v-model="addr2">
+    </div>
     <div ref="embed"></div>
-    <button @click="showApi">주소API 호출</button>
+
   </div>
 </template>
 
 <script>
 export default {
   name: 'Address',
+
   data() {
     return {
       zip: '',
@@ -31,19 +42,19 @@ export default {
 
           // 법정동명이 있을 경우 추가한다. (법정리는 제외)
           // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-          if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+          if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
             extraRoadAddr += data.bname;
           }
           // 건물명이 있고, 공동주택일 경우 추가한다.
-          if(data.buildingName !== '' && data.apartment === 'Y'){
+          if (data.buildingName !== '' && data.apartment === 'Y') {
             extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
           }
           // 도로명, 지번 조합형 주소가 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-          if(extraRoadAddr !== ''){
+          if (extraRoadAddr !== '') {
             extraRoadAddr = ' (' + extraRoadAddr + ')';
           }
           // 도로명, 지번 주소의 유무에 따라 해당 조합형 주소를 추가한다.
-          if(fullRoadAddr !== ''){
+          if (fullRoadAddr !== '') {
             fullRoadAddr += extraRoadAddr;
           }
 
