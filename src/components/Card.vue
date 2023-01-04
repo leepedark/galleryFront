@@ -5,7 +5,7 @@
       <!--    <img :src="item.imgPath"/>-->
       <div class="card-body">
         <div class="d-flex justify-content-between align-items-center">
-          <ul>
+          <ul>npm
             <small class="text-muted">{{ item.name }}</small>
             <small class="origin">{{ lib.getNumberFormatted(item.price) }}</small>
             <li class="text-muted">할인가{{
@@ -18,7 +18,6 @@
       </div>
     </div>
   </div>
-
 </template>
 
 <script>

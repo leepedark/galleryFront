@@ -19,6 +19,9 @@
               <li>
                 <router-link to="/orders" class="text-white">주문내역</router-link>
               </li>
+              <li>
+                <router-link to="/board" class="text-white">게시판</router-link>
+              </li>
             </ul>
           </div>
         </div>

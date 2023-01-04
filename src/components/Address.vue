@@ -14,7 +14,6 @@
       <input type="text" class="form-control" id="dtl" required v-model="addr2">
     </div>
     <div ref="embed"></div>
-
   </div>
 </template>
 
@@ -29,6 +28,7 @@ export default {
       addr2: ''
     }
   },
+
   methods: {
     showApi() {
       new window.daum.Postcode({
@@ -62,7 +62,7 @@ export default {
           this.zip = data.zonecode; //5자리 새우편번호 사용
           this.addr1 = fullRoadAddr;
         }
-      }).embed(this.$refs.embed)
+      }).embed(this.$refs.embed) // open은 팝업
     }
   }
 }
