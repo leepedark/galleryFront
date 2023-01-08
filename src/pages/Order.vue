@@ -18,7 +18,7 @@
             <ul class="list-group mb-3">
               <li class="list-group-item d-flex justify-content-between lh-sm" v-for="(i, idx) in state.items"
                   :key="idx">
-                <span>{{i.id}}</span>
+                <span>{{ i.id }}</span>
                 <div>
                   <h6 class="my-0">{{ i.name }}</h6>
                 </div>
@@ -37,17 +37,10 @@
             <div class="needs-validation" novalidate="">
               <div class="row g-3">
                 <div class="col-12"><label for="username" class="form-label">이름</label>
-                  <input type="text"
-                         class="form-control"
-                         id="username"
-                         v-model="state.form.name"
-                  >
+                  <input type="text" class="form-control" id="username" v-model="state.form.name">
                 </div>
                 <div class="col-12"><label for="address" class="form-label">주소</label>
-                  <input type="text"
-                         class="form-control"
-                         id="address"
-                         v-model="state.form.address">
+                  <input type="text" class="form-control" id="address" v-model="state.form.address">
                 </div>
               </div>
               <hr class="my-4">
@@ -65,10 +58,7 @@
                 </div>
               </div>
               <label for="cc-name" class="form-label">카드 번호</label>
-              <input type="text"
-                     class="form-control"
-                     id="cc-name"
-                     v-model="state.form.cardNumber">
+              <input type="text" class="form-control" id="cc-name" v-model="state.form.cardNumber">
               <hr class="my-4">
               <button class="w-100 btn btn-primary btn-lg" @click="submit()">결제하기</button>
             </div>
@@ -93,7 +83,7 @@ export default {
       items: [],
 
       form: {
-        itemId:"",
+        itemId: "",
         name: "",
         address: "",
         payment: "",
@@ -110,7 +100,7 @@ export default {
       // axios.get("api/cart/items").then((res) => {
       //   state.items = res.data
 
-        // console.log("장바구니총" + state.items)
+      // console.log("장바구니총" + state.items)
       // })
     }
 
