@@ -60,7 +60,7 @@ export default {
       })
     },
     fnView(idx) {
-      this.requestBody.idx = idx
+      this.requestBody.id = idx
       this.$router.push({
         path: '/form',
         query: this.requestBody
@@ -83,8 +83,8 @@ export default {
               this.fnView(res.data.id)
             }).catch((err) => {
           // if (err.message.indexOf('Network Error') > -1) {
-            // alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
-            err.message
+          // alert('네트워크가 원활하지 않습니다.\n잠시 후 다시 시도해주세요.')
+          err.message
           // }
         })
       } else {
