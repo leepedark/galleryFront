@@ -21,7 +21,7 @@
       <tr v-for="(b, idx) in boards.content" :key="idx">
         <td>{{ b.id }}</td>
         <td v-on:click="fnView(`${b.id}`)">{{ b.title }}</td>
-        <td>{{ b.member.name }}</td>
+        <td>{{ b.memberId }}</td>
       </tr>
       </tbody>
     </table>
@@ -87,7 +87,7 @@ export default {
     },
 
     fnView(idx) {
-      this.requestBody.page = idx
+      this.requestBody.id = idx
       this.$router.push({
         path: '/form',
         query: this.requestBody

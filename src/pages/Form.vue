@@ -38,7 +38,7 @@ export default {
   data() {
     return {
       requestBody: this.$route.query,
-      idx: this.$route.query.page,
+      idx: this.$route.query.id,
       title: '',
       author: '',
       contents: '',
@@ -64,7 +64,7 @@ export default {
       })
     },
     fnList() {
-      delete this.requestBody.idx
+      delete this.requestBody.id
       this.$router.push({
         path: '/board',
         query: this.requestBody
